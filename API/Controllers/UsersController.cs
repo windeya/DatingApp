@@ -27,5 +27,13 @@ namespace API.Controllers {
         {
             return await _context.Users.FindAsync(id);
         }
+
+        //api/users/name/3
+        [HttpGet("name/{id}")]
+        public async Task<ActionResult<string>> GetUserName(int id)
+        {
+            var model=await _context.Users.FindAsync(id);
+            return model.UserName;
+        }
     }
 }
